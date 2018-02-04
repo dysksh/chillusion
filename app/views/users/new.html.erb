@@ -1,0 +1,82 @@
+<!--<div class="row">-->
+<!--  <div class= "col-lg-6 col-md-6 col-sm-6">-->
+<!--    <div class="center jumbotron">-->
+<!--      <div class="text-center">-->
+<!--        <h1>Welcome to the Chillusion</h1>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="col-lg-6 col-md-6 col-sm-6">-->
+<!--    <div class="center jumbotron">-->
+<!--      <div class="text-center">-->
+<!--        <h2>Sign up</h2>-->
+<!--      </div>-->
+      
+<!--      <div class="col-lg-6 col-md-6 col-sm-6">-->
+<!--      <%= form_for(@user) do |f| %>-->
+<!--        <div class="form-group">-->
+<!--          <%= f.label :name, "Name" %>-->
+<!--          <%= f.text_field :name, class: "form-controll" %>-->
+<!--        </div>-->
+        
+<!--        <div class="form-group">-->
+<!--          <%= f.label :email, "Email" %>-->
+<!--          <%= f.email_field :email, class: "form-controll" %>-->
+<!--        </div>-->
+        
+<!--        <div class="form-group">-->
+<!--          <%= f.label :password, "Password" %>-->
+<!--          <%= f.password_field :password, class: "form-controll" %>-->
+<!--        </div>-->
+        
+<!--        <div class="form-group">-->
+<!--          <%= f.label :password_confirmation, "Confirmation" %>-->
+<!--          <%= f.password_field :password_confirmation, class: "form-controll" %>-->
+<!--        </div>-->
+        
+        
+<!--        <%= f.submit "Sign up", class: "btn btn-primary" %>-->
+<!--      <% end %>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-6">
+    <h1>exception</h1>
+    <p>test</p>
+  </div>
+  
+  <div class="col-lg-6 col-md-6 col-sm-6">
+    <div class="text-center">
+      <h1>Sign up</h1>
+    </div>
+    <%= form_for(@user) do |f| %>
+      <%= render "layouts/error_messages", model: f.object %>
+      <div class="form-group">
+        <%= f.label :name, 'Name' %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :email, 'Email' %>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password, 'Password' %>
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password_confirmation, 'Confirmation' %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+
+      <%= f.submit 'Sign up', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  </div>
+</div>
+
