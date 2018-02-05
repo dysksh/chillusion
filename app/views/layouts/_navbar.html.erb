@@ -26,7 +26,19 @@
     </div>
     <div class="col-lg-2 col-lg-offset-8 col-md-2 col-md-offset-7 col-sm-2 col-sm-offset-6 col-xs-2 col-xs-offset-5">
       <div class="menu">
-        <a href="#">Login</a>
+        <% if logged_in? %>
+          <% if current_page?(current_user) %>
+            <%= link_to "Logout", logout_path, method: :delete %>
+          <% else %>
+            <%= link_to "Myprofile", user_path(current_user) %>
+          <% end %>
+        <% else %>
+          <% if current_page?(signup_path) %>
+            <%= link_to "Login", login_path %>
+          <% else %>
+            <%= link_to "Signup", signup_path %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
