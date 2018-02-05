@@ -1,0 +1,31 @@
+<ul class="media-list">
+  <% works.each do |work| %>
+    <% user = work.user %>
+    <div class="row">
+      <div class="col-lg-6 col-md-6">
+        <li class="media">
+          <div class="center jumbotron">
+            <div class="media-left">
+              <img class="media-object img-circle img-responsive" src="<%= gravatar_url(user, options = { size: 500 }) %>" alt="">
+              <%= link_to user.name, user_path(user) %>
+            </div>
+            <div class="media-body">
+              <div>
+                <%= work.work_path %>
+              </div>
+              <div>
+                <p><%= work.title %><br><%=work.caption %></p>
+              </div>
+              <div>
+                <% if current_user == work.user %>
+                  <%= link_to "削除", work, method: :delete, data: { confirm: "本当によろしいですか?" }, class: "btn btn-danger" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </li>
+      </div>
+    </div>
+  <% end %>
+  <%= paginate works %>
+</ul>
