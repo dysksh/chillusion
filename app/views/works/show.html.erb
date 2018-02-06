@@ -1,2 +1,5 @@
-<h1>Works#show</h1>
-<p>Find me in app/views/works/show.html.erb</p>
+<%= @work.work_path %><br>
+<h4>title:<%= @work.title %></h4>
+<% user = @work.user %>
+<h4>作者:<%= link_to user.name, user_path(user) %></h4>
+<h4>caption:<%= @work.caption %></h4>

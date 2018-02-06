@@ -19,12 +19,16 @@
   <!--  </div>-->
   <!--</nav>-->
   <div class="row">
-    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-5">
+    <div class="col-lg-2 col-lg-offset-1 col-md-3 col-md-offset-1 col-sm-4 col-xs-5">
       <div class="logo">
-        <a class="navbar-left" href="/"><img src="/images/logo.png" alt="Chillusion" width="50%" height="50%"></a>
+        <% if logged_in? %>
+          <a class="navbar-left" href="/"><img src="/images/logo.png" width="50%" height="50%"></a>
+        <% else %>
+          <a class="navbar-left" href="/"><img src="/images/logo-top.png" width="100%" height="100%"></a>
+        <% end %>
       </div>
     </div>
-    <div class="col-lg-2 col-lg-offset-8 col-md-2 col-md-offset-7 col-sm-2 col-sm-offset-6 col-xs-2 col-xs-offset-5">
+    <div class="col-lg-2 col-lg-offset-7 col-md-2 col-md-offset-6 col-sm-2 col-sm-offset-6 col-xs-2 col-xs-offset-5">
       <div class="menu">
         <% if logged_in? %>
           <% if current_page?(current_user) %>
