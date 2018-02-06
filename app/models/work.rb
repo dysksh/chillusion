@@ -5,4 +5,6 @@ class Work < ApplicationRecord
   validates :title, presence: true, length: { maximum: 50 }
   validates :work_path, presence: true
   validates :caption, length: { maximum: 255 }
+  
+  mount_uploader :image, ImageUploader
 end

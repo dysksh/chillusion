@@ -26,7 +26,7 @@ class WorksController < ApplicationController
   private
   
   def work_params
-    params.require(:work).permit(:title, :work_path, :caption, :image)
+    params.require(:work).permit(:title, :work_path, :caption, :image, :image_cache, :remove_image)
   end
   
   def correct_user

@@ -1,4 +1,11 @@
 <%= @work.work_path %><br>
+<p>
+  <% if @work.image? %>
+    <div class="thumbnail">
+      <%= image_tag @work.image.url %>
+    </div>
+  <% end %>
+</p>
 <h4>title:<%= @work.title %></h4>
 <% user = @work.user %>
 <h4>作者:<%= link_to user.name, user_path(user) %></h4>

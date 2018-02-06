@@ -6,6 +6,13 @@
       </div>
       <div class="panel-body">
         <img class="media-object img-circle img-responsive" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
+        <p>
+          <% if @user.image? %>
+            <div class="thumbnail">
+              <%= image_tag @user.image.url %>
+            </div>
+          <% end %>
+        </p>
       </div>
     </div>
     <p class="profile">

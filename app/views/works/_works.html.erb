@@ -8,6 +8,13 @@
             <div class="media-left">
               <%= link_to user_path(user) do %>
               <img class="media-object img-circle img-responsive" src="<%= gravatar_url(user, options = { size: 500 }) %>" alt="">
+              <p>
+                <% if @user.image? %>
+                  <div class="thumbnail">
+                    <%= image_tag @user.image.url %>
+                  </div>
+                <% end %>
+              </p>
               <%= user.name %>
               <% end %>
             </div>
@@ -16,6 +23,13 @@
               <div>
                 <%= work.work_path %>
               </div>
+              <p>
+                <% if work.image? %>
+                  <div class="thumbnail">
+                    <%= image_tag work.image.url %>
+                  </div>
+                <% end %>
+              </p>
               <div>
                 <p><%= work.title %><br><%=work.caption %></p>
               </div>

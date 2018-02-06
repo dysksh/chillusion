@@ -6,6 +6,7 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   validates :profile, length: { maximum: 255 }
   has_secure_password
+  mount_uploader :image, ImageUploader
   
   has_many :works
 end
