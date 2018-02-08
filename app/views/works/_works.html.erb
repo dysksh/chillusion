@@ -7,12 +7,13 @@
           <div class="center jumbotron">
             <div class="media-left">
               <%= link_to user_path(user) do %>
-              <img class="media-object img-circle img-responsive" src="<%= gravatar_url(user, options = { size: 500 }) %>" alt="">
               <p>
                 <% if @user.image? %>
                   <div class="thumbnail">
                     <%= image_tag @user.image.url %>
                   </div>
+                <% else %>
+                  <img class="media-object img-circle img-responsive" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
                 <% end %>
               </p>
               <%= user.name %>
