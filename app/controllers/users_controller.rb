@@ -42,10 +42,10 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-end
+  
+  private
 
-private
-
-def user_params
-  params.require(:user).permit(:name, :email, :password, :password_confirmaion, :profile, :image, :image_cache, :remove_image)
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmaion, :profile, :image, :image_cache, :remove_image)
+  end
 end
