@@ -17,6 +17,9 @@
                 <% end %>
               </p>
               <%= user.name %>
+              <% unless current_page?(user_path(@user)) %>
+                <%= render "relationships/follow_button", user: @user %>
+              <% end %>
               <% end %>
             </div>
             <div class="media-body">

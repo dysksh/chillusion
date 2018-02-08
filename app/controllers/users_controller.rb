@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:show, :edit]
+  before_action :require_user_logged_in, only: [:show, :edit, :followings, :followers]
   
   def show
     @user = User.find(params[:id])
@@ -41,6 +41,18 @@ class UsersController < ApplicationController
       flash.now[:danger]="更新に失敗しました"
       render :edit
     end
+  end
+  
+  def followings
+    @user = User.find(params[:id])
+    @followings = @user.followings.page(params[:page])
+    counts(@user)
+  end
+  
+  def followers
+    @user = User.find(params[:id])
+    @followers = @user.followers.page(params[:page])
+    counts(@user)
   end
   
   private
