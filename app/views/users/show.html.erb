@@ -4,7 +4,7 @@
       <p>
         <% if @user.image? %>
           <div class="thumbnail">
-            <%= image_tag @user.image.url %>
+            <%= image_tag @user.image.thumb %>
           </div>
         <% else %>
           <img class="media-object img-circle img-responsive" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">

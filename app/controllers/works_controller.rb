@@ -7,7 +7,7 @@ class WorksController < ApplicationController
       flash[:success]="投稿しました"
       redirect_to root_url
     else
-      @works = current_user.works.order("created_at DESC").page(params[:page])
+      @works = current_user.feed_works.order("created_at DESC").page(params[:page])
       flash.now[:danger]="投稿に失敗しました"
       render "users/new"
     end

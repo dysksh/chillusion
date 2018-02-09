@@ -1,7 +1,7 @@
 <ul class="media-list">
   <% works.each do |work| %>
     <% user = work.user %>
-    <div class="row" style="float:right;">
+    <div class="row">
       <div class="col-lg-6 col-md-6">
         <li class="media">
           <div class="center jumbotron">
@@ -10,7 +10,7 @@
               <p>
                 <% if @user.image? %>
                   <div class="thumbnail">
-                    <%= image_tag @user.image.url %>
+                    <%= image_tag @user.image.thumb %>
                   </div>
                 <% else %>
                   <img class="media-object img-circle img-responsive" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
@@ -30,7 +30,7 @@
               <p>
                 <% if work.image? %>
                   <div class="thumbnail">
-                    <%= image_tag work.image.url %>
+                    <%= image_tag work.image.thumb %>
                   </div>
                 <% end %>
               </p>

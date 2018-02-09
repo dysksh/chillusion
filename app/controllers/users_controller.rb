@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     if logged_in?
       @user = current_user
       @work = current_user.works.build #form_for用
-      @works = current_user.works.order("created_at DESC").page(params[:page])
+      @works = current_user.feed_works.order("created_at DESC").page(params[:page])
     else
       @user = User.new
     end
