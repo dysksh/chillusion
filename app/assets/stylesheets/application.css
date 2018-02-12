@@ -36,12 +36,16 @@ a:hover {
 a:active {
   color: #EBEBEB;
 }
-/*.thumbnail {*/
-/*  background-image: url("/images/logo.png");  */
-/*    width:  300px;       */
-/*    height: 300px;       */
-/*    border-radius: 50%;  */
-/*}*/
+.thumbnail {
+  /*background-image: url("/images/logo.png");  */
+    /*width:  300px;       */
+    /*height: 300px;       */
+    /*border-radius: 50%;  */
+}
+
+.thum {
+  border-radius: 50%;
+}
 
 /*.user_show {*/
 /*  width: 1200px;*/
@@ -85,4 +89,8 @@ a:active {
 /*  left: 500px;*/
 /*  width: 750px;*/
 /*  height: 750px;*/
+/*}*/
+
+/*.caption {*/
+/*  font-size: 12px;*/
 /*}*/

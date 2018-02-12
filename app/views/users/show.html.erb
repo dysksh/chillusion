@@ -1,14 +1,33 @@
-<div class="user_show">
-  <div class="text-center">
-    <div class="user">
+<div class="text-center">
+  <div class="row">
+    <div class="followings col-lg-2 col-lg-offset-3 col-md-2 col-md-offset-3 col-sm-2 col-sm-offset-3 col-xs-3 col-xs-offset-2">
+      <%= link_to followings_user_path(@user) do %>
+      <img src="/images/followings.png" width="75%" height="75%"><br>Followings <span class="badge"><%= @count_followings %></span>
+      <% end %>
+    </div>
+    
+    <div class="followers col-lg-2 col-lg-offset-2 col-md-2 col-md-offset-2 col-sm-2 col-sm-offset-2 col-xs-3 col-xs-offset-2">
+      <%= link_to followers_user_path(@user) do %>
+      <img src="/images/followers.png" width="75%" height="75%"><br>Followers <span class="badge"><%= @count_followers %></span>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="favorites col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1 col-xs-3">
+      <a href="#"><img src="/images/favorites.png" width="75%" height="75%"><br>Favorites</a>
+    </div>
+    
+    <div class="user col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1 col-xs-4 col-xs-offset-1">
       <p>
-        <% if @user.image? %>
-          <div class="thumbnail">
-            <%= image_tag @user.image.thumb %>
-          </div>
-        <% else %>
-          <img class="media-object img-circle img-responsive" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
-        <% end %>
+        <!--<% if @user.image? %>-->
+            <!--<% thum = @user.image.thumb ? @user.image.thumb : "/images/logo.png" %>-->
+              
+            <%= image_tag @user.image.thumb, :class => "thum" %>
+              
+        <!--<% else %>-->
+          <!--<img class="media-object img-circle img-responsive" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">-->
+        <!--<% end %>-->
       </p>
       <div class="user_profile">
         <h4><%= @user.name %></h4>
@@ -23,25 +42,14 @@
       </div>
     </div>
       
-    
-    <div class="followings">
-      <%= link_to followings_user_path(@user) do %>
-      <img src="/images/followings.png" width="15%" height="15%"><br>Followings <span class="badge"><%= @count_followings %></span>
-      <% end %>
+    <div class="groups col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1 col-xs-3 col-xs-offset-1">
+      <a href="#"><img src="/images/groups.png" width="75%" height="75%"><br>Groups</a>
     </div>
-    <div class="followers">
-      <%= link_to followers_user_path(@user) do %>
-      <img src="/images/followers.png" width="15%" height="15%"><br>Followers <span class="badge"><%= @count_followers %></span>
-      <% end %>
-    </div>
-    <div class="favorites">
-      <a href="#"><img src="/images/favorites.png" width="15%" height="15%"><br>Favorites</a>
-    </div>
-    <div class="groups">
-      <a href="#"><img src="/images/groups.png" width="15%" height="15%"><br>Groups</a>
-    </div>
+    <!--</div>-->
   </div>
 </div>
+
+  
 
 
 

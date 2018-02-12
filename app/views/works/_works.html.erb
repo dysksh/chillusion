@@ -1,32 +1,29 @@
 <ul class="media-list">
   <% works.each do |work| %>
     <% user = work.user %>
-    <div class="row">
+    <!--<div class="row">-->
       <div class="col-lg-6 col-md-6">
         <li class="media">
           <div class="center jumbotron">
             <div class="media-left">
               <%= link_to user_path(user) do %>
-              <p>
-                <% if @user.image? %>
-                  <div class="thumbnail">
-                    <%= image_tag @user.image.thumb %>
-                  </div>
-                <% else %>
-                  <img class="media-object img-circle img-responsive" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
-                <% end %>
-              </p>
-              <%= user.name %>
-              <% unless current_page?(user_path(@user)) %>
-                <%= render "relationships/follow_button", user: @user %>
-              <% end %>
+                <p>
+                  <% if user.image? %>
+                    <!--<div class="thumbnail">-->
+                      <%= image_tag user.image.thumb, :class => "thum" %>
+                    <!--</div>-->
+                  <% else %>
+                    <img class="media-object img-circle img-responsive" src="<%= gravatar_url(user, { size: 500 }) %>" alt="">
+                  <% end %>
+                </p>
+                <%= user.name %>
               <% end %>
             </div>
             <div class="media-body">
               <%= link_to work_path(work) do %>
-              <div>
-                <%= work.work_path %>
-              </div>
+              <!--<div>-->
+              <!--  <%= work.work_path %>-->
+              <!--</div>-->
               <p>
                 <% if work.image? %>
                   <div class="thumbnail">
@@ -35,19 +32,25 @@
                 <% end %>
               </p>
               <div>
-                <p><%= work.title %><br><%=work.caption %></p>
+                <p><%= work.title %></p>
               </div>
+              <!--<div class="caption">-->
+              <!--  <%=work.caption %>-->
+              <!--</div>-->
               <% end %>
               <div>
                 <% if current_user == work.user %>
                   <%= link_to "削除", work, method: :delete, data: { confirm: "本当によろしいですか?" }, class: "btn btn-danger" %>
+                <% end %>
+                <% unless current_page?(user_path(user)) %>
+                  <%= render "relationships/follow_button", user: user %>
                 <% end %>
               </div>
             </div>
           </div>
         </li>
       </div>
-    </div>
+    <!--</div>-->
   <% end %>
   <%= paginate works %>
 </ul>
