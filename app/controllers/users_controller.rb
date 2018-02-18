@@ -47,12 +47,16 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @followings = @user.followings.page(params[:page])
     counts(@user)
+    # @works = current_user.feed_works.order("created_at DESC").page(params[:page])
+    # @work = @user.works.last
   end
   
   def followers
     @user = User.find(params[:id])
     @followers = @user.followers.page(params[:page])
     counts(@user)
+    # @works = current_user.feed_works.order("created_at DESC").page(params[:page])
+    # @work = @user.works.last
   end
   
   private

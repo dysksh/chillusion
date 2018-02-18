@@ -14,36 +14,37 @@
   </div>
   
   <div class="row">
-    <div class="favorites col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1 col-xs-3">
+    <div class="favorites col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1 col-xs-3 col-xs-offset-1">
       <a href="#"><img src="/images/favorites.png" width="75%" height="75%"><br>Favorites</a>
     </div>
     
-    <div class="user col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1 col-xs-4 col-xs-offset-1">
+    <div class="user col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1 col-xs-4">
       <p>
-        <!--<% if @user.image? %>-->
-            <!--<% thum = @user.image.thumb ? @user.image.thumb : "/images/logo.png" %>-->
+        <% if @user.image? %>
+            <% thum = @user.image.thumb ? @user.image.thumb : "/images/logo.png" %>
+            
+              <%= image_tag @user.image.thumb, :class => "thum" %>
               
-            <%= image_tag @user.image.thumb, :class => "thum" %>
-              
-        <!--<% else %>-->
-          <!--<img class="media-object img-circle img-responsive" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">-->
-        <!--<% end %>-->
-      </p>
-      <div class="user_profile">
-        <h4><%= @user.name %></h4>
-        <h5 class="profile">
-          <%= @user.profile %>
-        </h5>
-        <% if current_page?(current_user) %>
-          <%= link_to "変更", edit_user_path(@user), class:"btn btn-primary" %>
         <% else %>
-          <%= render "relationships/follow_button", user: @user %>
+          <img class="media-object img-circle img-responsive" src="<%= gravatar_url(@user, { size: 360 }) %>" alt="">
         <% end %>
-      </div>
+      </p>
+      
     </div>
       
-    <div class="groups col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1 col-xs-3 col-xs-offset-1">
+    <div class="groups col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1 col-xs-3">
       <a href="#"><img src="/images/groups.png" width="75%" height="75%"><br>Groups</a>
+    </div>
+    <div class="user_profile col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2">
+      <h4><%= @user.name %></h4>
+      <h5 class="profile">
+        <%= @user.profile %>
+      </h5>
+      <% if current_page?(current_user) %>
+        <%= link_to "変更", edit_user_path(@user), class:"btn btn-primary" %>
+      <% else %>
+        <%= render "relationships/follow_button", user: @user %>
+      <% end %>
     </div>
     <!--</div>-->
   </div>
@@ -55,7 +56,7 @@
 
 
 
-<h3>Works</h3>
+<h3>Works<span class="badge"><%= @count_works %></span></h3>
 <%= render "works/works", works: @works %>
 
 

@@ -54,3 +54,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "kaminari"
 gem "carrierwave"
 gem "rmagick", "= 2.16.0", :require => 'rmagick'
+# gem 'pry-byebug', group: :development

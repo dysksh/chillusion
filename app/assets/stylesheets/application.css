@@ -2,6 +2,7 @@
 
  /*body */
 body {
+  overflow-x: hidden; /*横スクロールしない*/
   background: #222222;
   color: #999999;
 }
@@ -45,7 +46,60 @@ a:active {
 
 .thum {
   border-radius: 50%;
+  width: 100%;
 }
+
+.thum-media-profile {
+  border-radius: 50%;
+  /*width: 100%; */
+}
+
+.thum-media-left {
+  /*width: 50px;*/
+}
+
+.favorites,
+.groups {
+   margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .favorites,
+  .groups {
+     margin-top: 100px;
+  }
+}
+@media (min-width: 992px) {
+  .favorites,
+  .groups {
+     margin-top: 100px;
+  }
+}
+@media (min-width: 1200px) {
+  .favorites,
+  .groups {
+     margin-top: 100px;
+  }
+}
+
+.head{
+  margin-top: 10px;
+  margin-left: 0px;
+}
+
+.menu{
+  margin-top: 5px;
+}
+
+@media (min-width: 768px) {
+  .head{
+    margin-top: 20px;
+  }
+  .menu{
+    margin-top: 10px;
+  }
+}
+
 
 /*.user_show {*/
 /*  width: 1200px;*/
