@@ -51,6 +51,8 @@
                   <% else %>
                     <%= render "relationships/follow_button", user: user %>
                   <% end %>
+                  <br>
+                  <%= render "favorites/favorite_button", work: work %>
                 <% else %>
                   <%= render "relationships/follow_button", user: user %>
                 <% end %>

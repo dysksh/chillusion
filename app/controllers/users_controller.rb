@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:show, :edit, :followings, :followers]
+  before_action :require_user_logged_in, only: [:show, :edit, :followings, :followers, :favorite_works]
   
   def show
     @user = User.find(params[:id])
@@ -57,6 +57,12 @@ class UsersController < ApplicationController
     counts(@user)
     # @works = current_user.feed_works.order("created_at DESC").page(params[:page])
     # @work = @user.works.last
+  end
+  
+  def favorite_works
+    @user = User.find(params[:id])
+    @favorite_works = @user.favorite_works.page(params[:page])
+    counts(@user)
   end
   
   private

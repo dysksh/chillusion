@@ -10,3 +10,4 @@
 <% user = @work.user %>
 <h4>作者:<%= link_to user.name, user_path(user) %></h4>
 <h4>caption:<%= @work.caption %></h4>
+<%= render "favorites/favorite_button", work: @work %>

@@ -37,10 +37,15 @@
               <!--</div>-->
               <% end %>
               <div>
-                <% if current_user == work.user %>
-                  <%= link_to "削除", work, method: :delete, data: { confirm: "本当によろしいですか?" }, class: "btn btn-danger" %>
-                <% end %>
-                <% unless current_page?(user_path(user)) %>
+                <% if work.present? %>
+                  <% if current_user == work.user %>
+                    <%= link_to "削除", work, method: :delete, data: { confirm: "本当によろしいですか?" }, class: "btn btn-danger" %>
+                  <% else %>
+                    <%= render "relationships/follow_button", user: user %>
+                  <% end %>
+                  <br>
+                  <%= render "favorites/favorite_button", work: work %>
+                <% else %>
                   <%= render "relationships/follow_button", user: user %>
                 <% end %>
               </div>
