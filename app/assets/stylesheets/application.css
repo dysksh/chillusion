@@ -51,11 +51,20 @@ a:active {
 
 .thum-media-profile {
   border-radius: 50%;
-  /*width: 100%; */
+  width: 100%; 
+}
+
+.thum-media-comment {
+  border-radius: 50%;
+  width: 60px;
 }
 
 .thum-media-left {
-  /*width: 50px;*/
+  width: 50%;
+}
+
+.media-body-right {
+  width: 50%;
 }
 
 .favorites,

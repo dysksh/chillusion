@@ -2,7 +2,7 @@
   <% works.each do |work| %>
     <% user = work.user %>
     <!--<div class="row">-->
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <li class="media">
           <div class="center jumbotron">
             <div class="media-left thum-media-left">
@@ -12,12 +12,13 @@
                       <%= image_tag user.image.thumb, :class => "thum-media-profile" %>
                     <!--</div>-->
                   <% else %>
-                    <img class="media-object img-circle" src="<%= gravatar_url(user, { size: 300 }) %>" alt="">
+                    <%= image_tag ("default.png"), :class => "thum-media-profile" %>
+                    <!--<img class="media-object img-circle" src="<%= gravatar_url(user, { size: 300 }) %>" alt="">-->
                   <% end %>
                 <%= user.name %>
               <% end %>
             </div>
-            <div class="media-body">
+            <div class="media-body media-body-right">
               <%= link_to work_path(work) do %>
               <!--<div>-->
               <!--  <%= work.work_path %>-->
@@ -26,6 +27,11 @@
                 <% if work.image? %>
                   <div class="thumbnail">
                     <%= image_tag work.image.thumb %>
+                  </div>
+                <% else %>  
+                    <!--<img src="/public/images/no_img.png">-->
+                  <div class="thumbnail">
+                    <%= image_tag ("default.png") %>
                   </div>
                 <% end %>
               </p>

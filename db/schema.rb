@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180218140344) do
+ActiveRecord::Schema.define(version: 20180221050935) do
+
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "work_id"
+    t.string   "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "work_id"], name: "index_comments_on_user_id_and_work_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+    t.index ["work_id"], name: "index_comments_on_work_id", using: :btree
+  end
 
   create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -41,6 +52,7 @@ ActiveRecord::Schema.define(version: 20180218140344) do
     t.datetime "updated_at",      null: false
     t.string   "image"
     t.string   "origin_image"
+    t.index ["name"], name: "index_users_on_name", unique: true, using: :btree
   end
 
   create_table "works", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -54,6 +66,8 @@ ActiveRecord::Schema.define(version: 20180218140344) do
     t.index ["user_id"], name: "index_works_on_user_id", using: :btree
   end
 
+  add_foreign_key "comments", "users"
+  add_foreign_key "comments", "works"
   add_foreign_key "favorites", "users"
   add_foreign_key "favorites", "works"
   add_foreign_key "relationships", "users"

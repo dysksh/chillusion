@@ -15,6 +15,8 @@ class WorksController < ApplicationController
 
   def show
     @work = Work.find(params[:id])
+    @comment = current_user.comments.build
+    @comment_works = @work.comments.page(params[:page])
   end
 
   def destroy
@@ -28,6 +30,10 @@ class WorksController < ApplicationController
   def work_params
     params.require(:work).permit(:title, :work_path, :caption, :image, :image_cache, :remove_image)
   end
+  
+  # def comment_params
+  #   params.require(:comment).permit(:content)
+  # end
   
   def correct_user
     @work = current_user.works.find_by(id: params[:id])

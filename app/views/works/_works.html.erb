@@ -29,6 +29,10 @@
                   <div class="thumbnail">
                     <%= image_tag work.image.thumb %>
                   </div>
+                <% else %>
+                  <div class="thumbnail">
+                    <%= image_tag ("default.png") %>
+                  </div>
                 <% end %>
               </p>
               <div>

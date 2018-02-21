@@ -11,11 +11,13 @@ Rails.application.routes.draw do
       get :followings
       get :followers
       get :favorite_works
+      get :comment_works
     end
   end
   
   resources :works, only:[:create, :show, :destroy]
   resources :relationships, only:[:create, :destroy]
   resources :favorites, only:[:create, :destroy]
+  resources :comments, only:[:create]
   
 end

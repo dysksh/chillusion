@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   before_save { self.email.downcase! }
-  validates :name, presence: true, length: { maximum: 50 }
+  validates :name, presence: true, length: { maximum: 50 }, uniqueness: true
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                     uniqueness: { case_sensitive: false }
@@ -17,6 +17,9 @@ class User < ApplicationRecord
   
   has_many :favorites
   has_many :favorite_works, through: :favorites, source: :work
+  
+  has_many :comments
+  has_many :comment_works, through: :comments, source: :work
   
   def follow(other_user)
     unless self == other_user
@@ -48,6 +51,10 @@ class User < ApplicationRecord
   
   def favorite?(work)
     self.favorite_works.include?(work)
+  end
+  
+  def comment(work, content)
+    self.comments.create(work_id: work.id, content: content)
   end
   
 end

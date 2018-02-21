@@ -1,0 +1,20 @@
+<% comments.each do |comment| %>
+<% user=comment.user %>
+<h4>
+<%= link_to user_path(user) do %>
+  
+    <% if user.image? %>
+      <%= image_tag user.image.thumb, :class => "thum-media-comment" %>
+    <% else %>
+      <%= image_tag ("default.png"), :class => "thum-media-comment" %>
+    <% end %>
+<% end %>
+<%= comment.content %>
+<br>
+
+<%= link_to user_path(user) do %>
+    <%= user.name %>
+<% end %>
+
+</h4>
+<% end %>
