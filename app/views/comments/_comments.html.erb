@@ -8,13 +8,10 @@
     <% else %>
       <%= image_tag ("default.png"), :class => "thum-media-comment" %>
     <% end %>
-<% end %>
-<%= comment.content %>
-<br>
-
-<%= link_to user_path(user) do %>
     <%= user.name %>
 <% end %>
+<br>
 
+<%= comment.content %>
 </h4>
 <% end %>
