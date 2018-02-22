@@ -44,14 +44,16 @@
                 <!--</div>-->
               <% end %>
               <% else %>
-              <p>
-                作品がまだ投稿されていません
-              </p>
+                <div class="thumbnail">
+                  <%= image_tag ("default.png") %>
+                </div>
+                <p>作品がまだ投稿されていません</p>
               <% end %>
               <div>
                 <% if work.present? %>
                   <% if current_user == work.user %>
                     <%= link_to "削除", work, method: :delete, data: { confirm: "本当によろしいですか?" }, class: "btn btn-danger" %>
+                    <br>
                   <% else %>
                     <%= render "relationships/follow_button", user: user %>
                   <% end %>

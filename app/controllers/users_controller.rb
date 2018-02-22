@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:show, :edit, :followings, :followers, :favorite_works]
+  before_action :require_user_logged_in, only: [:index, :show, :edit, :followings, :followers, :favorite_works]
+  
+  def index
+    @users = User.all.order("created_at DESC").page(params[:page])
+  end
   
   def show
     @user = User.find(params[:id])
@@ -45,7 +49,7 @@ class UsersController < ApplicationController
   
   def followings
     @user = User.find(params[:id])
-    @followings = @user.followings.page(params[:page])
+    @followings = @user.followings.order("created_at DESC").page(params[:page])
     counts(@user)
     # @works = current_user.feed_works.order("created_at DESC").page(params[:page])
     # @work = @user.works.last
@@ -53,7 +57,7 @@ class UsersController < ApplicationController
   
   def followers
     @user = User.find(params[:id])
-    @followers = @user.followers.page(params[:page])
+    @followers = @user.followers.order("created_at DESC").page(params[:page])
     counts(@user)
     # @works = current_user.feed_works.order("created_at DESC").page(params[:page])
     # @work = @user.works.last
@@ -61,7 +65,7 @@ class UsersController < ApplicationController
   
   def favorite_works
     @user = User.find(params[:id])
-    @favorite_works = @user.favorite_works.page(params[:page])
+    @favorite_works = @user.favorite_works.order("created_at DESC").page(params[:page])
     counts(@user)
   end
   

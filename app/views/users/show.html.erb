@@ -36,7 +36,9 @@
     </div>
       
     <div class="groups col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1 col-xs-3">
-      <a href="#"><img src="/images/groups.png" width="75%" height="75%"><br>Groups</a>
+      <%= link_to users_path do %>
+        <img src="/images/groups.png" width="75%" height="75%"><br>Users
+      <% end %>
     </div>
     <div class="user_profile col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2">
       <h4><%= @user.name %></h4>
@@ -71,4 +73,4 @@
 <div class="<%= 'active' if current_page?(followings_user_path(@user)) %>"><%= link_to followings_user_path(@user) do %>Followings <span class="badge"><%= @count_followings %></span><% end %></div>
 <div class="<%= 'active' if current_page?(followers_user_path(@user)) %>"><%= link_to followers_user_path(@user) do %>Followers <span class="badge"><%= @count_followers %></span><% end %></div>
 <div class="<%= 'active' if current_page?(favorite_works_user_path(@user)) %>"><%= link_to favorite_works_user_path(@user) do %>Favorites <span class="badge"><%= @count_favorite_works %></span><% end %></div>
-    
+<%= link_to users_path do %>Users<% end %>
