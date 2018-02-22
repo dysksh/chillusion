@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: chillusion_production
   username: chillusion
   password: <%= ENV['CHILLUSION_DATABASE_PASSWORD'] %>
