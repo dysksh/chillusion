@@ -1,4 +1,4 @@
-<h3><%= @user.name %>のFavorites</h3>
+<h3><%= @user.name %>のお気に入り</h3>
 <% if @favorite_works.present? %>
   <%= render 'works/works', works: @favorite_works %>
 <% else %>

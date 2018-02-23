@@ -1,4 +1,4 @@
-<h3><%= @user.name %>のFollowings</h3>
+<h3><%= @user.name %>のフォロー</h3>
 <% if @followings.present? %>
   <%= render 'users', users: @followings%>
 <% else %>

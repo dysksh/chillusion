@@ -10,16 +10,16 @@
     <!--</div>-->
   <% end %>
 </p>
-<h4>title:<%= @work.title %></h4>
+<h4>タイトル:<%= @work.title %></h4>
 <% user = @work.user %>
 <h4>作者:<%= link_to user.name, user_path(user) %></h4>
-<h4>caption:<%= @work.caption %></h4>
+<h4>キャプション:<%= @work.caption %></h4>
 <%= render "favorites/favorite_button", work: @work %>
 <div class="row">
   <div class="col-md-6">
   <%= form_for(@comment) do |f| %>
     <div class="form-group">
-      <%= f.label :content, "Comment" %>
+      <%= f.label :content, "コメント" %>
       <%= f.text_field :content, class: "form-control" %>
     </div>
     <%= hidden_field_tag :work_id, @work.id %>

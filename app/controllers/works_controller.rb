@@ -20,12 +20,12 @@ class WorksController < ApplicationController
   end
 
   def destroy
-    if @work.comments.present?
-      @work.comments.destroy
-    end
-    if current_user.favorite(@work)
-      current_user.unfavorite(@work)
-    end
+    # if @work.comments.present?
+    #   @work.comments.destroy
+    # end
+    # if current_user.favorite(@work)
+    #   current_user.unfavorite(@work)
+    # end
     
     @work.destroy
     flash[:success]="投稿を削除しました"

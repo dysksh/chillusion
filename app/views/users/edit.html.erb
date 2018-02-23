@@ -6,7 +6,7 @@
     <%= form_for(@user) do |f| %>
       <%= render "layouts/error_messages", model: f.object %>
       <div class="form-group">
-        <%= f.label :name, 'Name' %>
+        <%= f.label :name, '名前' %>
         <%= f.text_field :name, class: 'form-control' %>
       </div>
       
@@ -16,7 +16,7 @@
             <%= image_tag @user.image.url %>
           </div>
         <% end %><br>
-        <%= f.label :image %><br>
+        <%= f.label :image, "アイコン画像" %><br>
         <%= f.file_field :image %>
         <%= f.hidden_field :image_cache %>
       </div>
@@ -31,21 +31,21 @@
       </div>
 
       <div class="form-group">
-        <%= f.label :email, 'Email' %>
+        <%= f.label :email, 'メールアドレス' %>
         <%= f.email_field :email, class: 'form-control' %>
       </div>
 
       <div class="form-group">
-        <%= f.label :password, 'Password' %>
+        <%= f.label :password, 'パスワード' %>
         <%= f.password_field :password, class: 'form-control' %>
       </div>
 
       <div class="form-group">
-        <%= f.label :profile, 'Profile' %>
+        <%= f.label :profile, '自己紹介' %>
         <%= f.text_area :profile, class: 'form-control', rows: 5 %>
       </div>
 
-      <%= f.submit '変更', class: 'btn btn-primary' %>
+      <%= f.submit '変更', class: 'btn btn-primary btn-block' %>
     <% end %>
   </div>
 </div>

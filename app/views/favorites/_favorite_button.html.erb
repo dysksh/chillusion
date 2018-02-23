@@ -1,11 +1,11 @@
   <% if current_user.favorite?(work) %>
     <%= form_for(current_user.favorites.find_by(work_id: work.id), html: { method: :delete }) do |f| %>
       <%= hidden_field_tag :work_id, work.id %>
-      <%= f.submit 'Unfavorite', class: 'btn btn-danger' %>
+      <%= f.submit 'お気に入り解除', class: 'btn btn-danger' %>
     <% end %>
   <% else %>
     <%= form_for(current_user.favorites.build) do |f| %>
       <%= hidden_field_tag :work_id, work.id %>
-      <%= f.submit 'Favorite', class: 'btn btn-primary' %>
+      <%= f.submit 'お気に入り', class: 'btn btn-primary' %>
     <% end %>
   <% end %>
