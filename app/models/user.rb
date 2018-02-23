@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_secure_password
   mount_uploader :image, ImageUploader
   
-  has_many :works
+  has_many :works, dependent: :destroy
   
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow
