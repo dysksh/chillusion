@@ -73,6 +73,27 @@
               </label>
             <% end %>
           </div>
+          
+          <div class="field">
+            <% if @work.audio? %>
+              <div class="thumbnail">
+                <%= audio_tag @work.audio.url %>
+              </div>
+            <% end %><br>
+            <%= f.label :audio, "音楽" %><br>
+            <%= f.file_field :audio %>
+            <%= f.hidden_field :audio_cache %>
+          </div>
+          <div class="field">
+            <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
+            <% if @work.persisted? && @work.audio? %>
+              <label>
+                <%= f.check_box :remove_audio %>
+                音楽を削除
+              </label>
+            <% end %>
+          </div>
+          
           <br>
           <div class="form-group">
             <%= f.label :caption, "キャプション" %>
@@ -95,6 +116,8 @@
       <h4>覚えさせるためのものばかり。</h4>
       <h4>こうして子どもたちは</h4>
       <h4>”あそび“を忘れてゆきました。</h4>
+      <h4>Chillusionは創作（”あそび“）とそれに伴う交流の場です。</h4>
+      <h4>競争ではなく、まったりあそぼう</h4>
     </div>
   
     <div class="col-lg-6 col-md-6 col-sm-6">

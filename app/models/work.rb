@@ -6,6 +6,7 @@ class Work < ApplicationRecord
   validates :caption, length: { maximum: 255 }
   
   mount_uploader :image, ImageUploader
+  mount_uploader :audio, AudioFileUploader
   
   has_many :favorites, dependent: :destroy
   has_many :favorite_works, through: :favorites, source: :work, dependent: :destroy

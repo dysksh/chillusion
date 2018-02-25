@@ -10,6 +10,15 @@
     <!--</div>-->
   <% end %>
 </p>
+
+<p>
+  <% if @work.audio? %>
+    <!--<div class="thumbnail">-->
+      <%= audio_tag @work.audio.url, controls: true %>
+    <!--</div>-->
+  <% end %>
+</p>
+
 <h4>タイトル:<%= @work.title %></h4>
 <% user = @work.user %>
 <h4>作者:<%= link_to user.name, user_path(user) %></h4>
