@@ -52,8 +52,18 @@ class AudioFileUploader < CarrierWave::Uploader::Base
   version :mp3 do
     process :convert => [{output_format: :mp3}]
 
+    # def full_filename(for_file)
+    #   "#{super.chomp(File.extname(super))}.mp3"
+    # end
     def full_filename(for_file)
-      "#{super.chomp(File.extname(super))}.mp3"
+      "#{secure_token}.mp3" if original_filename.present?
+    end
+  
+    protected
+  
+    def secure_token
+      var = :"@#{mounted_as}_secure_token"
+      model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
     end
   end
 end
