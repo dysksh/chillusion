@@ -60,3 +60,5 @@ group :production do
 end
 gem 'carrierwave-audio'
 gem "sox"
+gem "fog"
+gem 'dotenv-rails'

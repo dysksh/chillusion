@@ -4,7 +4,12 @@ class AudioFileUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  # storage :file
+  if Rails.env=="production"
+    storage :fog
+  else
+    storage :file
+  end
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -36,7 +41,7 @@ class AudioFileUploader < CarrierWave::Uploader::Base
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   # def extension_whitelist
-  #   %w(jpg jpeg gif png)
+  #   %w(mp3 wav)
   # end
 
   # Override the filename of the uploaded files:
@@ -66,4 +71,13 @@ class AudioFileUploader < CarrierWave::Uploader::Base
       model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
     end
   end
+  
+   # 追記
+  # version :wav do
+  # process :convert => [{output_format: :wav}]
+
+  # def full_filename(for_file)
+  #   "#{super.chomp(File.extname(super))}.wav"
+  # end
+  # end
 end
