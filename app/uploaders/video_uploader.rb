@@ -1,4 +1,4 @@
-class AudioFileUploader < CarrierWave::Uploader::Base
+class VideoUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
@@ -41,7 +41,7 @@ class AudioFileUploader < CarrierWave::Uploader::Base
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_whitelist
-    %w(mp3 wav)
+    %w(mp4 flv avi mov)
   end
 
   # Override the filename of the uploaded files:
@@ -49,21 +49,8 @@ class AudioFileUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-  
-  # 追記
-  include CarrierWave::Audio
-
-  # 追記
-  version :mp3 do
-    process :convert => [{output_format: :mp3}]
-
-    # def full_filename(for_file)
-    #   "#{super.chomp(File.extname(super))}.mp3"
-    # end
-  end
-  
   def filename
-    "#{secure_token}.mp3" if original_filename.present?
+    "#{secure_token}.#{file.extension}" if original_filename.present?
   end
   
   protected
@@ -72,13 +59,4 @@ class AudioFileUploader < CarrierWave::Uploader::Base
     var = :"@#{mounted_as}_secure_token"
     model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
   end
-  
-  # 追記
-  # version :wav do
-  # process :convert => [{output_format: :wav}]
-
-  # def full_filename(for_file)
-  #   "#{super.chomp(File.extname(super))}.wav"
-  # end
-  # end
 end

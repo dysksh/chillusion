@@ -35,7 +35,7 @@ class WorksController < ApplicationController
   private
   
   def work_params
-    params.require(:work).permit(:title, :work_path, :caption, :image, :image_cache, :remove_image, :audio, :audio_cache, :remove_audio)
+    params.require(:work).permit(:title, :work_path, :caption, :image, :image_cache, :remove_image, :audio, :audio_cache, :remove_audio, :video, :video_cache, :remove_video)
   end
   
   # def comment_params

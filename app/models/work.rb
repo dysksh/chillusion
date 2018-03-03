@@ -7,6 +7,7 @@ class Work < ApplicationRecord
   
   mount_uploader :image, ImageUploader
   mount_uploader :audio, AudioFileUploader
+  mount_uploader :video, VideoUploader
   
   has_many :favorites, dependent: :destroy
   has_many :favorite_works, through: :favorites, source: :work, dependent: :destroy

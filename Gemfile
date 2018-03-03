@@ -62,3 +62,4 @@ gem 'carrierwave-audio'
 gem "sox"
 gem "fog"
 gem 'dotenv-rails'
+gem 'flowplayer', git: 'git://github.com/scottdavis/flowplayer-gem.git'

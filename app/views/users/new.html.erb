@@ -46,10 +46,10 @@
     <aside class="col-lg-6 col-md-6">
       <div class="center jumbotron">
         <%= form_for(@work) do |f| %>
-          <div class="form-group">
+          <!--<div class="form-group">-->
             <%= f.label :title, "タイトル" %>
-            <%= f.text_field :title, class: "form-control" %>
-          </div>
+            <%= f.text_field :title, class: "form-control"%>
+          <!--</div>-->
           <!--<div class="form-group">-->
           <!--  <%= f.label :work_path, "work" %>-->
           <!--  <%= f.text_field :work_path, class: "form-control" %>-->
@@ -79,7 +79,7 @@
               <div class="thumbnail">
                 <%= audio_tag @work.audio.url %>
               </div>
-            <% end %><br>
+            <% end %>
             <%= f.label :audio, "音楽" %><br>
             <%= f.file_field :audio %>
             <%= f.hidden_field :audio_cache %>
@@ -94,10 +94,30 @@
             <% end %>
           </div>
           
+          <div class="field">
+            <% if @work.video? %>
+              <div class="thumbnail">
+                <%= video_tag @work.video.url %>
+              </div>
+            <% end %>
+            <%= f.label :video, "映像" %><br>
+            <%= f.file_field :video %>
+            <%= f.hidden_field :video_cache %>
+          </div>
+          <div class="field">
+            <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
+            <% if @work.persisted? && @work.video? %>
+              <label>
+                <%= f.check_box :remove_video %>
+                映像を削除
+              </label>
+            <% end %>
+          </div>
+          
           <br>
           <div class="form-group">
             <%= f.label :caption, "キャプション" %>
-            <%= f.text_area :caption, class: "form-control", rows: 4 %>
+            <%= f.text_area :caption, class: "form-control", rows: 3 %>
           </div>
           <%= f.submit "投稿", class:"btn btn-primary" %>
         <% end %>

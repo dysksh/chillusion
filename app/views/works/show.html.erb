@@ -1,21 +1,36 @@
-<%= @work.work_path %><br>
+<!--<%= @work.work_path %>--><br>
+<!--<p>-->
+<!--  <% if @work.image? %>-->
+<!--    <div class="thumbnail">-->
+<!--      <%= image_tag @work.image.url %>-->
+<!--    </div>-->
+<!--  <% else %>-->
+    <!--<div class="thumbnail">-->
+<!--      <%= image_tag ("default.png") %>-->
+    <!--</div>-->
+<!--  <% end %>-->
+<!--</p>-->
+
+<!--<p>-->
+<!--  <% if @work.audio? %>-->
+<!--    <%= audio_tag @work.audio.url, controls: true %>-->
+<!--  <% end %>-->
+<!--</p>-->
+
 <p>
-  <% if @work.image? %>
+  <% if @work.video? %>
+    <%= video_tag @work.video.url, controls: true, :class => "video" %>
+  <% elsif @work.image? %>
     <div class="thumbnail">
       <%= image_tag @work.image.url %>
     </div>
   <% else %>
-    <!--<div class="thumbnail">-->
-      <%= image_tag ("default.png") %>
-    <!--</div>-->
+    <%= image_tag ("default.png") %>
   <% end %>
 </p>
-
 <p>
   <% if @work.audio? %>
-    <!--<div class="thumbnail">-->
-      <%= audio_tag @work.audio.url, controls: true %>
-    <!--</div>-->
+    <%= audio_tag @work.audio.url, controls: true %>
   <% end %>
 </p>
 
