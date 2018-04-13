@@ -42,9 +42,9 @@
     </div>
     <div class="user_profile col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2">
       <h4><%= @user.name %></h4>
-      <h5 class="profile">
+      <h6 class="profile">
         <%= @user.profile %>
-      </h5>
+      </h6>
       <% if current_page?(current_user) %>
         <%= link_to "変更", edit_user_path(@user), class:"btn btn-primary" %>
       <% else %>
@@ -61,16 +61,16 @@
 
 
 
-<h3>作品<span class="badge"><%= @count_works %></span></h3>
+<h3>制作物<span class="badge"><%= @count_works %></span></h3>
 <% if @works.present? %>
   <%= render "works/works", works: @works %>
 <% else %>
-  <h3>作品がまだ投稿されていません</h3>
+  <h3>制作物がまだ投稿されていません</h3>
 <% end %>
 
 
-<div class="<%= 'active' if current_page?(user_path(@user)) %>"><%= link_to user_path(@user) do %>Works <span class="badge"><%= @count_works %></span><% end %></div>
-<div class="<%= 'active' if current_page?(followings_user_path(@user)) %>"><%= link_to followings_user_path(@user) do %>Followings <span class="badge"><%= @count_followings %></span><% end %></div>
-<div class="<%= 'active' if current_page?(followers_user_path(@user)) %>"><%= link_to followers_user_path(@user) do %>Followers <span class="badge"><%= @count_followers %></span><% end %></div>
-<div class="<%= 'active' if current_page?(favorite_works_user_path(@user)) %>"><%= link_to favorite_works_user_path(@user) do %>Favorites <span class="badge"><%= @count_favorite_works %></span><% end %></div>
-<%= link_to users_path do %>Users<% end %>
+<!--<div class="<%= 'active' if current_page?(user_path(@user)) %>"><%= link_to user_path(@user) do %>Works <span class="badge"><%= @count_works %></span><% end %></div>-->
+<!--<div class="<%= 'active' if current_page?(followings_user_path(@user)) %>"><%= link_to followings_user_path(@user) do %>Followings <span class="badge"><%= @count_followings %></span><% end %></div>-->
+<!--<div class="<%= 'active' if current_page?(followers_user_path(@user)) %>"><%= link_to followers_user_path(@user) do %>Followers <span class="badge"><%= @count_followers %></span><% end %></div>-->
+<!--<div class="<%= 'active' if current_page?(favorite_works_user_path(@user)) %>"><%= link_to favorite_works_user_path(@user) do %>Favorites <span class="badge"><%= @count_favorite_works %></span><% end %></div>-->
+<!--<%= link_to users_path do %>Users<% end %>-->
