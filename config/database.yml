@@ -15,8 +15,9 @@ default: &default
   pool: 5
   username: root
   password: <%= ENV['DB_PASSWORD'] %>
-  socket: /tmp/mysql.sock
-    # /var/run/mysqld/mysqld.sock
+  socket: /var/run/mysqld/mysqld.sock
+  
+  # /tmp/mysql.sock
 
 development:
   <<: *default
