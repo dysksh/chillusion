@@ -4,8 +4,10 @@
     <!--<div class="row">-->
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <li class="media">
+          <div class="ai">
           <div class="center jumbotron">
-            <div class="media-left thum-media-left">
+            <!-- <div class=" class="media-left thum-media-left""> -->
+            <div class="user-image">
               <%= link_to user_path(user) do %>
                   <% if user.image? %>
                     <!--<div class="thumbnail">-->
@@ -15,7 +17,7 @@
                     <%= image_tag ("default.png"), :class => "thum-media-profile" %>
                     <!--<img class="media-object img-circle" src="<%= gravatar_url(user, { size: 300 }) %>" alt="">-->
                   <% end %>
-                <%= user.name %>
+                <p class="user-name"><%= user.name %></p>
               <% end %>
             </div>
             <div class="media-body media-body-right">
@@ -23,40 +25,55 @@
               <!--<div>-->
               <!--  <%= work.work_path %>-->
               <!--</div>-->
-              <p>
+              <p class="work-image">
                 <% if work.image? %>
                   <div class="thumbnail">
                     <%= image_tag work.image.thumb %>
                   </div>
-                <% else %>  
+                <% else %>
                     <!--<img src="/public/images/no_img.png">-->
                   <div class="thumbnail">
                     <%= image_tag ("default.png") %>
                   </div>
                 <% end %>
               </p>
-              <div>
-                <p><%= work.title %></p>
+              <div class="work-title">
+                <% if work.title[0, 1].encode("utf-8").bytesize == 1 %>
+                  <% if work.title.length <= 15 %>
+                    <p><%= work.title %></p>
+                  <% else %>
+                    <% work_title = work.title[0, 12] + "..." %>
+                    <p><%= work_title %></p>
+                  <% end %>
+                <% else %>
+                  <% if work.title.encode("utf-8").bytesize <= 21 %>
+                    <p><%= work.title %></p>
+                  <% else %>
+                    <% work_title = work.title[0, 5] + "..." %>
+                    <p><%= work_title %></p>
+                  <% end %>
+                <% end %>
               </div>
               <!--<div class="caption">-->
               <!--  <%=work.caption %>-->
               <!--</div>-->
               <% end %>
-              <div>
-                <% if work.present? %>
-                  <% if current_user == work.user %>
+              <div class="favorite-button">
+                <!-- <% if work.present? %> -->
+                  <!-- <% if current_user == work.user %>
                     <%= link_to "削除", work, method: :delete, data: { confirm: "本当によろしいですか?" }, class: "btn btn-danger" %>
                     <br>
                   <% else %>
                     <%= render "relationships/follow_button", user: user %>
                   <% end %>
-                  <br>
+                  <br> -->
                   <%= render "favorites/favorite_button", work: work %>
-                <% else %>
-                  <%= render "relationships/follow_button", user: user %>
-                <% end %>
+                <!-- <% else %> -->
+                  <!-- <%= render "relationships/follow_button", user: user %> -->
+                <!-- <% end %> -->
               </div>
             </div>
+          </div>
           </div>
         </li>
       </div>
@@ -64,4 +81,3 @@
   <% end %>
   <%= paginate works %>
 </ul>
-

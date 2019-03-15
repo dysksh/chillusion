@@ -14,6 +14,10 @@ body {
   background: #333333;
   color: #EEEEEE;
 }
+
+.media-list {
+  margin-bottom: 0;
+}
 /*.logo {*/
 /*  margin-top: 35px;*/
 /*  margin-left: 30px;*/
@@ -54,7 +58,12 @@ a:active {
 
 .thum-media-profile {
   border-radius: 50%;
-  width: 100%; 
+  width: 10%;
+  display: inline;
+}
+
+.user-name {
+  display: inline;
 }
 
 .thum-media-comment {
@@ -62,12 +71,33 @@ a:active {
   width: 60px;
 }
 
-.thum-media-left {
-  width: 50%;
-}
+/* .thum-media-left {
+  width: 10%;
+} */
 
 .media-body-right {
   width: 50%;
+}
+
+.work-title {
+  width: 75%;
+  display: inline;
+  float: left;
+}
+.work-title p {
+  width: 100%;
+  display: inline;
+  text-align: left;
+}
+
+.favorite-button {
+  display: inline;
+  float: right;
+}
+
+.favorite-button .new_favorite{
+  display: inline;
+  text-align: right;
 }
 
 .favorites,
@@ -75,10 +105,21 @@ a:active {
    margin-top: 20px;
 }
 
+div .center .jumbotron {
+  height: 500px;
+}
+
 @media (min-width: 768px) {
   .favorites,
   .groups {
      margin-top: 100px;
+  }
+  .ai {
+    height: 520px;
+  }
+  .thum-media-profile {
+    height: 33.5px;
+    width: 33.5px;
   }
 }
 @media (min-width: 992px) {
@@ -86,11 +127,17 @@ a:active {
   .groups {
      margin-top: 100px;
   }
+  .ai {
+    height: 520px;
+  }
 }
 @media (min-width: 1200px) {
   .favorites,
   .groups {
      margin-top: 100px;
+  }
+  .ai {
+    height: 520px;
   }
 }
 

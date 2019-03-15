@@ -7,54 +7,54 @@ class User < ApplicationRecord
   validates :profile, length: { maximum: 255 }
   has_secure_password
   mount_uploader :image, ImageUploader
-  
+
   has_many :works, dependent: :destroy
-  
+
   has_many :relationships
   has_many :followings, through: :relationships, source: :follow
   has_many :reverses_of_relationship, class_name: "Relationship", foreign_key: "follow_id"
-  has_many :followers, through: :reverses_of_relationship, source: :user 
-  
+  has_many :followers, through: :reverses_of_relationship, source: :user
+
   has_many :favorites
   has_many :favorite_works, through: :favorites, source: :work
-  
+
   has_many :comments
   has_many :comment_works, through: :comments, source: :work
-  
+
   def follow(other_user)
     unless self == other_user
       self.relationships.find_or_create_by(follow_id: other_user.id)
     end
   end
-  
+
   def unfollow(other_user)
    relationship = self.relationships.find_by(follow_id: other_user.id)
    relationship.destroy if relationship
   end
-  
+
   def following?(other_user)
     self.followings.include?(other_user)
   end
-  
+
   def feed_works
     Work.where(user_id: self.following_ids + [self.id] )
   end
-  
+
   def favorite(work)
     self.favorites.find_or_create_by(work_id: work.id)
   end
-  
+
   def unfavorite(work)
     a_favorite = self.favorites.find_by(work_id: work.id)
     a_favorite.destroy if a_favorite
   end
-  
+
   def favorite?(work)
     self.favorite_works.include?(work)
   end
-  
+
   def comment(work, content)
     self.comments.create(work_id: work.id, content: content)
   end
-  
+
 end

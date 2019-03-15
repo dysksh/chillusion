@@ -14,15 +14,15 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: <%= ENV['DB_PASSWORD'] %>
+  password: 
 # <<<<<<< HEAD
-  socket: /var/run/mysqld/mysqld.sock
-  
+#   socket: /var/run/mysqld/mysqld.sock
+
 #   # /tmp/mysql.sock
 # =======
-#   socket: /tmp/mysql.sock
+  socket: /tmp/mysql.sock
 #     # /var/run/mysqld/mysqld.sock
-    
+
 # >>>>>>> 39e8357fedecdc64a3a90ae3704bef696438291d
 
 development:

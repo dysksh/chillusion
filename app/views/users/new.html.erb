@@ -1,49 +1,7 @@
-<!--<div class="row">-->
-<!--  <div class= "col-lg-6 col-md-6 col-sm-6">-->
-<!--    <div class="center jumbotron">-->
-<!--      <div class="text-center">-->
-<!--        <h1>Welcome to the Chillusion</h1>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  <div class="col-lg-6 col-md-6 col-sm-6">-->
-<!--    <div class="center jumbotron">-->
-<!--      <div class="text-center">-->
-<!--        <h2>Sign up</h2>-->
-<!--      </div>-->
-      
-<!--      <div class="col-lg-6 col-md-6 col-sm-6">-->
-<!--      <%= form_for(@user) do |f| %>-->
-<!--        <div class="form-group">-->
-<!--          <%= f.label :name, "Name" %>-->
-<!--          <%= f.text_field :name, class: "form-controll" %>-->
-<!--        </div>-->
-        
-<!--        <div class="form-group">-->
-<!--          <%= f.label :email, "Email" %>-->
-<!--          <%= f.email_field :email, class: "form-controll" %>-->
-<!--        </div>-->
-        
-<!--        <div class="form-group">-->
-<!--          <%= f.label :password, "Password" %>-->
-<!--          <%= f.password_field :password, class: "form-controll" %>-->
-<!--        </div>-->
-        
-<!--        <div class="form-group">-->
-<!--          <%= f.label :password_confirmation, "Confirmation" %>-->
-<!--          <%= f.password_field :password_confirmation, class: "form-controll" %>-->
-<!--        </div>-->
-        
-        
-<!--        <%= f.submit "Sign up", class: "btn btn-primary" %>-->
-<!--      <% end %>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
 <% if logged_in? %>
   <div class="row">
     <aside class="col-lg-6 col-md-6">
+      <div class="ai">
       <div class="center jumbotron">
         <%= form_for(@work) do |f| %>
           <!--<div class="form-group">-->
@@ -73,7 +31,7 @@
               </label>
             <% end %>
           </div>
-          
+
           <div class="field">
             <% if @work.audio? %>
               <div class="thumbnail">
@@ -93,7 +51,7 @@
               </label>
             <% end %>
           </div>
-          
+
           <div class="field">
             <% if @work.video? %>
               <div class="thumbnail">
@@ -113,7 +71,7 @@
               </label>
             <% end %>
           </div>
-          
+
           <br>
           <div class="form-group">
             <%= f.label :caption, "説明、材料等" %>
@@ -122,6 +80,7 @@
           <%= f.submit "投稿", class:"btn btn-primary" %>
         <% end %>
       </div>
+    </div>
     </aside>
     <div>
       <%= render "users/users_signup", works: @works %>
@@ -146,7 +105,7 @@
       </h4>
       <h4>お気に入りの制作物にchill(チル)しよう。</h4>
     </div>
-  
+
     <div class="col-lg-6 col-md-6 col-sm-6">
       <div class="text-center">
         <br><h2>Sign up</h2>
@@ -178,6 +137,3 @@
     </div>
   </div>
 <% end %>
-
-
-
