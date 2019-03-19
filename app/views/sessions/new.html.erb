@@ -7,16 +7,16 @@
     <%= form_for(:session, url: login_path) do |f| %>
       <div class="form-group">
         <!--<%= f.label :email, "Email" %>-->
-        <%= f.email_field :email, class: "form-control", placeholder: "メールアドレス" %>
+        <%= f.email_field :email, class: "form-control", placeholder: "email" %>
       </div>
       <div class="form-group">
         <!--<%= f.label :password, "Password" %>-->
-        <%= f.password_field :password, class: "form-control", placeholder: "パスワード" %>
+        <%= f.password_field :password, class: "form-control", placeholder: "password" %>
       </div>
-      
-      <%= f.submit "ログイン", class: "btn btn-primary btn-block" %>
+
+      <%= f.submit "log in", class: "btn btn-primary btn-block" %>
     <% end %>
-    
-    <p>アカウントをお持ちですか? <%= link_to "登録する", signup_path %></p>
+
+    <p>Do you have an account? <%= link_to "Sign up", signup_path %></p>
   </div>
 </div>

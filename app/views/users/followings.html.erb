@@ -1,14 +1,89 @@
-<h3><%= @user.name %>のフォロー</h3>
+<div class="text-center">
+  <div class="row">
+    <div class="user col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-3 col-sm-offset-1 col-xs-3">
+      <p>
+        <% if @user.image? %>
+          <%= image_tag @user.image.thumb, :class => "thum" %>
+        <% else %>
+          <%= image_tag ("default.png"), :class => "thum" %>
+        <% end %>
+      </p>
+
+    </div>
+    <div class="user_profile col-lg-4 col-md-4 col-sm-5 col-xs-5">
+      <h4><%= @user.name %></h4>
+      <h6 class="profile">
+        <%= @user.profile %>
+      </h6>
+      <% if @user == current_user %>
+        <%= link_to "変更", edit_user_path(@user), class:"btn btn-primary" %>
+      <% else %>
+        <%= render "relationships/follow_button", user: @user %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="sp-nav">
+  <div class="<%= 'active' if current_page?(user_path(@user)) %>">
+    <%= link_to user_path(@user) do %>
+      <div>Works</div>
+      <span class="badge">
+        <%= @count_works %>
+      </span>
+    <% end %>
+  </div>
+  <div class="<%= 'active' if current_page?(followings_user_path(@user)) %>">
+    <%= link_to followings_user_path(@user) do %>
+      <div>Following</div>
+      <span class="badge">
+        <%= @count_followings %>
+      </span>
+    <% end %>
+  </div>
+  <div class="<%= 'active' if current_page?(followers_user_path(@user)) %>">
+    <%= link_to followers_user_path(@user) do %>
+      <div>Followers</div>
+      <span class="badge">
+        <%= @count_followers %>
+      </span>
+    <% end %>
+  </div>
+  <div class="<%= 'active' if current_page?(favorite_works_user_path(@user)) %>">
+    <%= link_to favorite_works_user_path(@user) do %>
+      <div>Favorites</div>
+      <span class="badge">
+        <%= @count_favorite_works %>
+      </span>
+    <% end %>
+  </div>
+</div>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <ul class="nav nav-tabs nav-justified justify-content-center">
+      <li class="<%= "active" if current_page?(user_path(@user)) %>">
+        <%= link_to user_path(@user) do %>Works
+          <span class="badge"><%= @count_works %></span>
+        <% end %>
+      </li>
+      <li class="<%= "active" if current_page?(followings_user_path(@user)) %>">
+        <%= link_to followings_user_path(@user) do %>Following
+          <span class="badge"><%= @count_followings %></span>
+        <% end %>
+      </li>
+      <li class="<%= "active" if current_page?(followers_user_path(@user)) %>">
+        <%= link_to followers_user_path(@user) do %>Followers
+          <span class="badge"><%= @count_followers %></span>
+        <% end %>
+      </li>
+      <li class="<%= "active" if current_page?(favorite_works_user_path(@user)) %>">
+        <%= link_to favorite_works_user_path(@user) do %>Favorites
+          <span class="badge"><%= @count_favorite_works %></span>
+        <% end %>
+      </li>
+    </ul>
+</div>
 <% if @followings.present? %>
   <%= render 'users', users: @followings%>
 <% else %>
   <h3>フォロー中のユーザーがいません</h3>
 <% end %>
-
-
-<!--<div class="<%= 'active' if current_page?(user_path(@user)) %>"><%= link_to user_path(@user) do %>Works <span class="badge"><%= @count_works %></span><% end %></div>-->
-<!--<div class="<%= 'active' if current_page?(followings_user_path(@user)) %>"><%= link_to followings_user_path(@user) do %>Followings <span class="badge"><%= @count_followings %></span><% end %></div>-->
-<!--<div class="<%= 'active' if current_page?(followers_user_path(@user)) %>"><%= link_to followers_user_path(@user) do %>Followers <span class="badge"><%= @count_followers %></span><% end %></div>-->
-<!--<div class="<%= 'active' if current_page?(favorite_works_user_path(@user)) %>"><%= link_to favorite_works_user_path(@user) do %>Favorites <span class="badge"><%= @count_favorite_works %></span><% end %></div>-->
-<!--<%= link_to users_path do %>Users<% end %>-->
-

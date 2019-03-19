@@ -4,7 +4,6 @@
       <div class="ai">
       <div class="center jumbotron">
         <%= form_for(@work) do |f| %>
-          <!--<div class="form-group">-->
             <%= f.label :title, "タイトル" %>
             <%= f.text_field :title, class: "form-control"%>
           <!--</div>-->
@@ -89,14 +88,6 @@
 <% else %>
   <div class="row">
     <div class="col-lg-6 col-md-6 col-sm-6">
-      <!--<br><h2>私とあなたであそぼう</h2><br>-->
-      <!--<h4>”遊び“を決めるのは監督の大人で</h4>-->
-      <!--<h4>しかもその”遊び“ときたら何か役に立つことを</h4>-->
-      <!--<h4>覚えさせるためのものばかり。</h4>-->
-      <!--<h4>こうして子どもたちは</h4>-->
-      <!--<h4>”あそび“を忘れてゆきました。</h4>-->
-      <!--<h4>Chillusionは創作（”あそび“）とそれに伴う交流の場です。</h4>-->
-      <!--<h4>競争ではなく、まったりあそぼう</h4>-->
       <br></br>
       <h3>Chillusionは創作とそれに伴う交流の場です。</h3>
       <h4>作った制作物をみんなと共有しよう。</h4>
@@ -114,25 +105,25 @@
         <%= render "layouts/error_messages", model: f.object %>
         <div class="form-group">
           <!--<%= f.label :name, 'Name' %>-->
-          <%= f.text_field :name, class: 'form-control', placeholder: "ユーザーネーム" %>
+          <%= f.text_field :name, class: 'form-control', placeholder: "name" %>
         </div>
 
         <div class="form-group">
           <!--<%= f.label :email, 'Email' %>-->
-          <%= f.email_field :email, class: 'form-control', placeholder: "メールアドレス" %>
+          <%= f.email_field :email, class: 'form-control', placeholder: "email" %>
         </div>
 
         <div class="form-group">
           <!--<%= f.label :password, 'Password' %>-->
-          <%= f.password_field :password, class: 'form-control', placeholder: "パスワード" %>
+          <%= f.password_field :password, class: 'form-control', placeholder: "password" %>
         </div>
 
         <div class="form-group">
           <!--<%= f.label :password_confirmation, 'Confirmation' %>-->
-          <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "パスワード確認用" %>
+          <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "password-confirmation" %>
         </div>
 
-        <%= f.submit '登録する', class: 'btn btn-primary btn-block' %>
+        <%= f.submit 'sign up', class: 'btn btn-primary btn-block' %>
       <% end %>
     </div>
   </div>

@@ -43,11 +43,11 @@
               <!--</div>-->
               <% end %>
               <div>
-                <% if current_user == work.user %>
+                <!-- <% if current_user == work.user %>
                   <%= link_to "削除", work, method: :delete, data: { confirm: "本当によろしいですか?" }, class: "btn btn-danger" %>
                   <br>
                 <% end %>
-                <br>
+                <br> -->
                 <%= render "favorites/favorite_button", work: work %>
                 <!--<% unless current_page?(user_path(user)) %>-->
                 <!--  <%= render "relationships/follow_button", user: user %>-->
@@ -61,5 +61,3 @@
   <% end %>
   <%= paginate works %>
 </ul>
-
-
