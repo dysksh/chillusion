@@ -246,6 +246,18 @@ div .center .jumbotron {
   }
 }
 
+.unfavorite_button {
+  background: #333333;
+  border: none;
+  color: #00FEBE;
+}
+
+.favorite_button {
+  background: #333333;
+  border: none;
+  color: #00FEBE;
+
+}
 
 
 /*.user_show {*/
