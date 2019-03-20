@@ -224,10 +224,15 @@ div .center .jumbotron {
   }
 }
 
-.sp-nav .active div {
+.sp-nav .line {
+  border-bottom: solid 1px #999999;
+}
+
+.sp-nav .active {
   font-weight: bold;
   border-bottom: solid 2px #00FEBE;
 }
+
 
 @media (min-width: 992px) {
   .col-md-10 {
