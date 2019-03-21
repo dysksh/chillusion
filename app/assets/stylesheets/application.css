@@ -142,8 +142,11 @@ div .center .jumbotron {
   .groups {
      margin-top: 100px;
   }
-  .ai {
-    height: 520px;
+  .ai .jumbotron {
+    margin-bottom: 0px;
+  }
+  .media-list .ai {
+    height: 420px;
   }
   .thum-media-profile {
     height: 33.5px;
@@ -155,8 +158,8 @@ div .center .jumbotron {
   .groups {
      margin-top: 100px;
   }
-  .ai {
-    height: 520px;
+  .media-list .ai {
+    height: 528px;
   }
 }
 @media (min-width: 1200px) {
@@ -164,8 +167,8 @@ div .center .jumbotron {
   .groups {
      margin-top: 100px;
   }
-  .ai {
-    height: 520px;
+  .media-list .ai {
+    height: 628px;
   }
 }
 
