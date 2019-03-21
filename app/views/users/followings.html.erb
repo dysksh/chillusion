@@ -5,13 +5,13 @@
         <% if @user.image? %>
           <%= image_tag @user.image.thumb, :class => "thum" %>
         <% else %>
-          <%= image_tag ("default.png"), :class => "thum" %>
+          <%= image_tag ("default1.jpg"), :class => "thum" %>
         <% end %>
       </p>
 
     </div>
     <div class="user_profile col-lg-4 col-md-4 col-sm-5 col-xs-5">
-      <h4><%= @user.name %></h4>
+      <h4 class="user-name"><%= @user.name %></h4>
       <h6 class="profile">
         <%= @user.profile %>
       </h6>

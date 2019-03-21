@@ -22,13 +22,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-  
+
   #   "/images/fallback/" + [version_name, "no_img.png"].compact.join('_')
   #   # "no_img.png"
   # end
-  
+
   def default_url
-    "/images/fallback/" + [thumb, "default.png"].compact.join('_')
+    "/images/fallback/" + [thumb, "default.jpg"].compact.join('_')
   end
 
   # Process files as they are uploaded:
@@ -40,14 +40,14 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process resize_to_fill: [300, 300]
+    process resize_to_fill: [500, 500]
   end
-  
+
   # recreate versions!
   # version :thumbnail do
   #   process resize_to_fill: [200, 200]
   # end
-  
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_whitelist
@@ -59,9 +59,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   def filename
     "#{secure_token}.#{file.extension}" if original_filename.present?
   end
-  
+
   protected
-  
+
   def secure_token
     var = :"@#{mounted_as}_secure_token"
     model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)

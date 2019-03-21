@@ -14,7 +14,7 @@
                       <%= image_tag user.image.thumb, :class => "thum-media-profile" %>
                     <!--</div>-->
                   <% else %>
-                    <%= image_tag ("default.png"), :class => "thum-media-profile" %>
+                    <%= image_tag ("default.jpg"), :class => "thum-media-profile" %>
                     <!--<img class="media-object img-circle" src="<%= gravatar_url(user, { size: 300 }) %>" alt="">-->
                   <% end %>
                 <p class="user-name"><%= user.name %></p>
@@ -33,7 +33,7 @@
                 <% else %>
                     <!--<img src="/public/images/no_img.png">-->
                   <div class="thumbnail">
-                    <%= image_tag ("default.png") %>
+                    <%= image_tag ("default.jpg") %>
                   </div>
                 <% end %>
               </p>

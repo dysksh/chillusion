@@ -54,7 +54,7 @@
                 <% else %>
                   <div class="thumbnail">
                     <%= link_to work_path(work) do %>
-                      <%= image_tag ("default.png") %>
+                      <%= image_tag ("default.jpg") %>
                       <div class="work-title">
                         <% if work.title[0, 1].encode("utf-8").bytesize == 1 %>
                           <% if work.title.length <= 15 %>
