@@ -2,9 +2,10 @@
   <% works.each do |work| %>
     <% user = work.user %>
     <!--<div class="row">-->
-      <div class="col-lg-4 col-md-4">
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
         <li class="media">
-          <div class="center jumbotron">
+          <div>
+             <!-- class="center jumbotron" -->
             <!--<div class="media-left">-->
             <!--  <%= link_to user_path(user) do %>-->
             <!--    <p>-->
@@ -20,39 +21,64 @@
             <!--  <% end %>-->
             <!--</div>-->
             <div class="media-body">
-              <%= link_to work_path(work) do %>
               <!--<div>-->
               <!--  <%= work.work_path %>-->
               <!--</div>-->
               <p>
                 <% if work.image? %>
                   <div class="thumbnail">
-                    <%= image_tag work.image.thumb %>
+                    <%= link_to work_path(work) do %>
+                      <%= image_tag work.image.thumb %>
+                      <div class="work-title">
+                        <% if work.title[0, 1].encode("utf-8").bytesize == 1 %>
+                          <% if work.title.length <= 15 %>
+                            <p><%= work.title %></p>
+                          <% else %>
+                            <% work_title = work.title[0, 12] + "..." %>
+                            <p><%= work_title %></p>
+                          <% end %>
+                        <% else %>
+                          <% if work.title.encode("utf-8").bytesize <= 21 %>
+                            <p><%= work.title %></p>
+                          <% else %>
+                            <% work_title = work.title[0, 5] + "..." %>
+                            <p><%= work_title %></p>
+                          <% end %>
+                        <% end %>
+                      </div>
+                    <% end %>
+                    <div>
+                      <%= render "favorites/favorite_button", work: work %>
+                    </div>
                   </div>
                 <% else %>
                   <div class="thumbnail">
-                    <%= image_tag ("default.png") %>
+                    <%= link_to work_path(work) do %>
+                      <%= image_tag ("default.png") %>
+                      <div class="work-title">
+                        <% if work.title[0, 1].encode("utf-8").bytesize == 1 %>
+                          <% if work.title.length <= 15 %>
+                            <p><%= work.title %></p>
+                          <% else %>
+                            <% work_title = work.title[0, 12] + "..." %>
+                            <p><%= work_title %></p>
+                          <% end %>
+                        <% else %>
+                          <% if work.title.encode("utf-8").bytesize <= 21 %>
+                            <p><%= work.title %></p>
+                          <% else %>
+                            <% work_title = work.title[0, 5] + "..." %>
+                            <p><%= work_title %></p>
+                          <% end %>
+                        <% end %>
+                      </div>
+                    <% end %>
+                    <div>
+                      <%= render "favorites/favorite_button", work: work %>
+                    </div>
                   </div>
                 <% end %>
               </p>
-              <div>
-                <p><%= work.title %></p>
-              </div>
-              <!--<div class="caption">-->
-              <!--  <%=work.caption %>-->
-              <!--</div>-->
-              <% end %>
-              <div>
-                <!-- <% if current_user == work.user %>
-                  <%= link_to "削除", work, method: :delete, data: { confirm: "本当によろしいですか?" }, class: "btn btn-danger" %>
-                  <br>
-                <% end %>
-                <br> -->
-                <%= render "favorites/favorite_button", work: work %>
-                <!--<% unless current_page?(user_path(user)) %>-->
-                <!--  <%= render "relationships/follow_button", user: user %>-->
-                <!--<% end %>-->
-              </div>
             </div>
           </div>
         </li>

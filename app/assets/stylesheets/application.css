@@ -63,6 +63,9 @@ a:active {
     /*width:  300px;       */
     /*height: 300px;       */
     /*border-radius: 50%;  */
+    background: #333333;
+    border: 1px solid #3F3F3F;
+    margin-bottom: 0px;
 }
 
 .thum {
@@ -97,6 +100,19 @@ a:active {
   width: 75%;
   display: inline;
   float: left;
+  margin-left: 10px;
+}
+@media (max-width:444px) {
+  .work-title {
+    padding-top: 5px;
+    width: 75%;
+  }
+}
+@media (max-width: 767px) {
+  .work-title {
+    font-size: 10px;
+    margin-left: 0px;
+  }
 }
 .work-title p {
   width: 100%;
@@ -232,11 +248,38 @@ div .center .jumbotron {
   font-weight: bold;
   border-bottom: solid 2px #00FEBE;
 }
+@media (max-width: 767px) {
+  .work-title p {
+    font-size: 10px;
+  }
+  .media-list .col-sm-4 {
+    width: 33.333%;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-right: 1px;
+    padding-left: 1px;
+  }
+}
+/* @media (min-width: 420px) {
 
+} */
 
+@media (min-width: 768px) {
+  .media-list .col-sm-4 {
+    padding-right: 2px;
+    padding-left: 2px;
+    height: 263px;
+  }
+}
 @media (min-width: 992px) {
   .col-md-10 {
     margin-right: 78.328px;
+  }
+  .media-list .col-md-4 {
+    padding-right: 3px;
+    padding-left: 3px;
+    height: 335px;
   }
 }
 
@@ -244,19 +287,25 @@ div .center .jumbotron {
   .col-lg-8 {
     margin-right: 190px;
   }
+  .media-list .col-lg-4 {
+    padding-right: 4px;
+    padding-left: 4px;
+    height: 340px;
+  }
 }
 
 .unfavorite_button {
   background: #333333;
   border: none;
   color: #00FEBE;
+  width: 20%;
 }
 
 .favorite_button {
   background: #333333;
   border: none;
   color: #00FEBE;
-
+  width: 20%;
 }
 
 
