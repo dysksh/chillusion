@@ -309,6 +309,25 @@ div .center .jumbotron {
   width: 20%;
 }
 
+.glyphicon-star {
+  background: #333333;
+  color: #00FEBE;
+}
+
+.glyphicon-star-empty {
+  background: #333333;
+  color: #00FEBE;
+}
+
+.btn:hover {
+  background: #333333;
+}
+
+button[type="submit"]:focus {
+  outline: none;
+  background: #333333;
+  border-color: #333333;
+}
 
 /*.user_show {*/
 /*  width: 1200px;*/
